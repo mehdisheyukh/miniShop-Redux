@@ -13,6 +13,7 @@ function App() {
       <Route path="/cart" element={<Cart/>}></Route>
     </Route>
   ))
+  
 
   return (
     <div className='App'>
