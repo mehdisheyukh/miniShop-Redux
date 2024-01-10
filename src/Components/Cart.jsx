@@ -14,7 +14,6 @@ const Cart = () => {
     dispatch(remove(id))
   }
 
-
   const cards = products.map(product => (
     <div className="col-md-12" style={{ marginBottom: '0.5rem'}}>
       <Card key={product.id} className="h-100">

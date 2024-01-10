@@ -1,5 +1,6 @@
 import { createSlice , createAsyncThunk } from "@reduxjs/toolkit";
 import StatusCode from '../utils/StatusCode';
+import axios from 'axios';
 
 const initialState = {
     data:[],
@@ -32,10 +33,16 @@ const productSlice = createSlice({
 // export const { fetchProducts } = productSlice.actions;
 export default productSlice.reducer;
 
+
+
 export const getProducts = createAsyncThunk('products/get' , async () => {
-    const data = await fetch("https://fakestoreapi.com/products")
-    const result = await data.json();
-    return result;
+    try{
+        const result = await axios.get('https://fakestoreapi.com/products')
+        return result.data;
+    }
+    catch (error) {
+        console.error(error);
+    }
 })
 
 //This is a middleware tank fetching data
